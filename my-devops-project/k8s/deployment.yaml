@@ -1,0 +1,21 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-devops-project-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-devops-project
+  template:
+    metadata:
+      labels:
+        app: my-devops-project
+    spec:
+      containers:
+      - name: my-devops-project
+        image: biswaraj111/myrepo:latest
+        ports:
+        - containerPort: 3000
+
